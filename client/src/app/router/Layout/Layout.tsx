@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styles from './Layout.module.css';
-import { Footer } from '@/widgets/Footer';
-import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar';
+// import { Footer } from '@/widgets/Footer';
+// import { Navbar } from '@/widgets/Navbar';
+// import { Sidebar } from '@/widgets/Sidebar';
 import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/reduxHooks';
 import { refreshAccessToken } from '@/entities/user';
@@ -16,12 +16,12 @@ const Layout: React.FC = () => {
 
   return (
     <>
-      <Navbar />
-      <Sidebar />
+      {/* <Navbar />
+      <Sidebar /> */}
       <main className={styles.root}>
         <Outlet />
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
