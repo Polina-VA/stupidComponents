@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThemeList } from ".";
 import { AxiosError } from "axios";
 import { QuestionService } from "../api";
+import { ThemeList } from "@/entities/theme/model";
 
 type RejectValue = {
     message: string

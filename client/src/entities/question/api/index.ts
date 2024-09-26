@@ -1,5 +1,5 @@
+import { ThemeList } from "@/entities/theme/model";
 import { axiosInstance } from "@/shared/lib/axiosInstance";
-// import { ThemeList } from "../model";
 
 export class QuestionService {
     static async getThemes(): Promise<ThemeList> {

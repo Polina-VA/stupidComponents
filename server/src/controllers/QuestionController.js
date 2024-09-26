@@ -9,4 +9,13 @@ const QuestionsServices = require('../services/Question.services')
     }
 }
 
+ async function getOneQuestions (req, res) {
+    try {
+        const question = await QuestionsServices.getOneQuestion()
+        res.status(200).json(question)
+    } catch ({message}) {
+        res.status(500).json({ error: message });
+    }
+}
+
 module.exports = {getAllThemesAndQuestions}

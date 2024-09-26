@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ThemeList } from ".";
 import { getAllQuestions } from "./questionThunks";
+import { ThemeList } from "@/entities/theme/model";
 
 type QuestionState = {
   themes: ThemeList;
