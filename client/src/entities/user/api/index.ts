@@ -8,60 +8,64 @@ interface ApiResponse<T> {
 
 export class UserService {
   static async refreshAccessToken(): Promise<AuthResponse> {
-    const { data, status } = await axiosInstance.get<ApiResponse<AuthResponse>>(
-      '/tokens/refresh'
-    );
-    if (status === 200) {
-      setAccessToken(data.data.accessToken);
-      return data.data;
+    const response = await axiosInstance.get<AuthResponse>("/tokens/refresh");
+    if (response.status === 200) {
+      setAccessToken(response.data.accessToken);
+      return response.data;
     } else {
-      throw new Error(data.message);
+      throw new Error(response.data.message);
     }
   }
 
-  static async signIn(email: string, password: string): Promise<AuthResponse> {
-    const { data, status } = await axiosInstance.post<
-      ApiResponse<AuthResponse>
-    >('/auth/signin', {
-      email,
-      password,
-    });
-    if (status === 200) {
-      setAccessToken(data.data.accessToken);
-      return data.data;
-    } else {
-      throw new Error(data.message);
-    }
-  }
-
+  //* Метод для регистрации пользователя
   static async signUp(
     name: string,
     email: string,
     password: string
   ): Promise<AuthResponse> {
-    const { data, status } = await axiosInstance.post<
-      ApiResponse<AuthResponse>
-    >('/auth/signup', {
-      name,
-      email,
-      password,
-    });
-    if (status === 201) {
-      setAccessToken(data.data.accessToken);
-      return data.data;
+    const response = await axiosInstance.post<AuthResponse>(
+      "/auth/registration",
+      {
+        name,
+        email,
+        password,
+      }
+    );
+
+    if (response.status === 201) {
+      setAccessToken(response.data.accessToken);
+      return response.data;
     } else {
-      throw new Error(data.message);
+      throw new Error(response.data.message);
     }
   }
 
-  static async logout(): Promise<void> {
-    const { data, status } = await axiosInstance.get<ApiResponse<null>>(
-      '/auth/logout'
+  //* Метод для входа пользователя
+  static async signIn(email: string, password: string): Promise<AuthResponse> {
+    const response = await axiosInstance.post<AuthResponse>(
+      "/auth/authorization",
+      {
+        email,
+        password,
+      }
     );
-    if (status === 200) {
-      setAccessToken('');
+
+    if (response.status === 200) {
+      setAccessToken(response.data.accessToken);
+
+      return response.data;
     } else {
-      throw new Error(data.message);
+      throw new Error(response.data.message);
+    }
+  }
+
+  //* Метод для выхода пользователя
+  static async logout(): Promise<void> {
+    const response = await axiosInstance.delete("/auth/logout");
+    if (response.status === 200) {
+      setAccessToken("");
+    } else {
+      throw new Error(response.data.message);
     }
   }
 }
