@@ -8,4 +8,5 @@ export type Theme = {
     updatedAt: Date;
 }
 
-export type ThemeList = Theme[]
+export type ThemeList = Theme[];
+
