@@ -10,10 +10,10 @@ type QuestionItemProps = {
 export const QuestionItem: React.FC<QuestionItemProps> = ({question}) => {
   return (
     <>
-      <Modal>
+      {/* <Modal> */}
           <h1>{question.question}</h1>
           <input type="text" />
-      </Modal>
+      {/* </Modal> */}
     </>
   )
 }

@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 type MainPageProps = {
@@ -5,6 +6,9 @@ type MainPageProps = {
 }
 
 export const MainPage: React.FC<MainPageProps> = ({}) => {
+
+  
+
   return <div>MainPage</div>
 }
 
