@@ -1,19 +1,19 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { QuestionService } from "../api";
-import { ThemeList } from "@/entities/theme/model";
+import { Question } from ".";
 
 type RejectValue = {
     message: string
 }
 
-export const getAllQuestions = createAsyncThunk<
-    ThemeList,
-    void,
+export const getQuestion = createAsyncThunk<
+    Question,
+    {questionId: number},
     { rejectValue: RejectValue }
->('questions/getAllThemes', async (_, { rejectWithValue }) => {
+>('questions/getQuestion', async ({questionId}, { rejectWithValue }) => {
     try {
-        return await QuestionService.getThemes()
+        return await QuestionService.getQuestion(questionId)
     } catch (error) {
         const err = error as AxiosError<{message: string}>
         return rejectWithValue({

@@ -1,10 +1,10 @@
-import { ThemeList } from "@/entities/theme/model";
 import { axiosInstance } from "@/shared/lib/axiosInstance";
+import { Question } from "../model";
 
 export class QuestionService {
-    static async getThemes(): Promise<ThemeList> {
+    static async getQuestion(questionId: number): Promise<Question> {
         try {
-            const { data } = await axiosInstance.get('/questions');
+            const { data } = await axiosInstance.get(`/questions/${questionId}`);
             return data.data;
         } catch (error) {
             console.error('Error getting all themes:', error);

@@ -1,4 +1,3 @@
-import styles from "./SignUpForm.module.css";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,7 +12,7 @@ import {
 import { signUp } from "@/entities/user";
 import { unwrapResult } from "@reduxjs/toolkit";
 
-// /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi;
+type SignUpFormProps = {};
 
 interface IFormInputs {
   name: string;
@@ -35,10 +34,10 @@ const schema = yup
   })
   .required();
 
-export const SignUpForm: React.FC = () => {
-  const navigate = useNavigate();
+export const SignUpForm: React.FC<SignUpFormProps> = ({}) => {
   const dispatch = useAppDispatch();
   const loading = useAppSelector(selectUserLoading);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -66,65 +65,53 @@ export const SignUpForm: React.FC = () => {
 
   const getStatusIcon = (fieldName: keyof IFormInputs) => {
     if (errors[fieldName]) {
-      return <span className={styles.icon}>🔴</span>;
+      return <span>🔴</span>;
     }
     if (getValues()[fieldName] && !errors[fieldName]) {
-      return <span className={styles.icon}>✅</span>;
+      return <span>✅</span>;
     }
     return null;
   };
-
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.inputContainer}>
-        <label className={styles.label}>* name</label>
-        <div className={styles.inputWithIcon}>
-          <input
-            className={styles.input}
-            placeholder="Enter your name"
-            {...register("name")}
-          />
-          {getStatusIcon("name")}
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>* name</label>
+          <div>
+            <input placeholder="Enter your name" {...register("name")} />
+            {getStatusIcon("name")}
+          </div>
+          {errors.name && <p>{errors.name.message}</p>}
         </div>
-        {errors.name && <p className={styles.error}>{errors.name.message}</p>}
-      </div>
 
-      <div className={styles.inputContainer}>
-        <label className={styles.label}>* email</label>
-        <div className={styles.inputWithIcon}>
-          <input
-            className={styles.input}
-            placeholder="Enter your email"
-            {...register("email")}
-          />
-          {getStatusIcon("email")}
+        <div>
+          <label>* email</label>
+          <div>
+            <input placeholder="Enter your email" {...register("email")} />
+            {getStatusIcon("email")}
+          </div>
+          {errors.email && <p>{errors.email.message}</p>}
         </div>
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-      </div>
 
-      <div className={styles.inputContainer}>
-        <label className={styles.label}>* password</label>
-        <div className={styles.inputWithIcon}>
-          <input
-            className={styles.input}
-            placeholder="Enter your password"
-            type="password"
-            {...register("password")}
-          />
-          {getStatusIcon("password")}
+        <div>
+          <label>* password</label>
+          <div>
+            <input
+              placeholder="Enter your password"
+              type="password"
+              {...register("password")}
+            />
+            {getStatusIcon("password")}
+          </div>
+          {errors.password && <p>{errors.password.message}</p>}
         </div>
-        {errors.password && (
-          <p className={styles.error}>{errors.password.message}</p>
-        )}
-      </div>
 
-      <button
-        className={styles.button}
-        type="submit"
-        disabled={!isValid || loading}
-      >
-        {loading ? "Signing Up..." : "Sign up"}
-      </button>
-    </form>
+        <button type="submit" disabled={!isValid || loading}>
+          {loading ? "Signing Up..." : "Sign up"}
+        </button>
+      </form>
+    </div>
   );
 };
+
+export default SignUpForm;
