@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { MainPage, SignInPage, SignUpPage, TaskPage } from '@/pages';
 import { ROUTES } from './routes';
 import Layout from './Layout/Layout';
 import { ProtectedRoute } from '@/shared/ui/ProtectedRoute';
 import { PublicRoute } from '@/shared/ui/PublicRoute';
+import { GamePage, MainPage, SignInPage, SignUpPage } from '@/pages';
 
 export const router = createBrowserRouter([
   {
@@ -27,18 +27,18 @@ export const router = createBrowserRouter([
         element: <SignUpPage />,
       },
       {
-        path: ROUTES.TASKS,
+        path: ROUTES.GAME,
         element: (
           <ProtectedRoute>
-            <TaskPage />
+            <GamePage/>
           </ProtectedRoute>
         ),
       },
       {
         path: 'test',
         async lazy() {
-          const { TaskPage } = await import('@/pages/TaskPage');
-          return { Component: TaskPage };
+          const { GamePage } = await import('@/pages/GamePage');
+          return { Component: GamePage };
         },
       },
     ],
