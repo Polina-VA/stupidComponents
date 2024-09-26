@@ -16,8 +16,9 @@ const Layout: React.FC = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Sidebar /> */}
+
+      {/* <Navbar />
+      <Sidebar /> */}
       <main className={styles.root}>
         <Outlet />
       </main>
