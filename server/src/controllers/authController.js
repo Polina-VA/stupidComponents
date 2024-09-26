@@ -3,7 +3,7 @@ const UserService = require("../services/User.services");
 const generateTokens = require("../utils/generateTokens");
 const bcrypt = require("bcrypt");
 
-async function registration(req, res)  {
+async function signUp(req, res)  {
     try {
       const { name, email, password } = req.body;
       // проверка на пустые поля
@@ -52,7 +52,7 @@ async function registration(req, res)  {
     }
 }
 
-async function authorization (req, res) {
+async function signIn (req, res) {
     try {
       const { email, password } = req.body;
   
@@ -101,7 +101,7 @@ async function authorization (req, res) {
 
 
 module.exports = {
-    registration,
-    authorization,
+    signUp,
+    signIn,
     logout,
   };
