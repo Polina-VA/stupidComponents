@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllQuestions } from "./questionThunks";
-import { ThemeList } from "@/entities/theme/model";
+import { Question } from ".";
+import { getQuestion } from "./questionThunks";
 
 type QuestionState = {
-  themes: ThemeList;
+  question: Question |null;
   error: string | null;
   loading: boolean;
 };
 
 const initalState: QuestionState = {
-  themes: [],
+  question: null,
   error: null,
   loading: false,
 };
@@ -20,15 +20,15 @@ const questionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getAllQuestions.pending, (state) => {
+      .addCase(getQuestion.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getAllQuestions.fulfilled, (state, action) => {
+      .addCase(getQuestion.fulfilled, (state, action) => {
         state.loading = false;
-        state.themes = action.payload;
+        state.question = action.payload;
         state.error = null;
       })
-      .addCase(getAllQuestions.rejected, (state) => {
+      .addCase(getQuestion.rejected, (state) => {
         state.loading = false
       })
   },

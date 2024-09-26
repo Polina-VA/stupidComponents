@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styles from './Layout.module.css';
 // import { Footer } from '@/widgets/Footer';
 // import { Navbar } from '@/widgets/Navbar';
 // import { Sidebar } from '@/widgets/Sidebar';
@@ -19,7 +18,7 @@ const Layout: React.FC = () => {
 
       {/* <Navbar />
       <Sidebar /> */}
-      <main className={styles.root}>
+      <main>
         <Outlet />
       </main>
       {/* <Footer /> */}
