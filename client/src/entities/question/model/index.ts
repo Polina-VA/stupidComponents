@@ -3,6 +3,8 @@ export type Question = {
     question: string;
     themeId: number;
     answer: string;
+    image:string;
+    point: number;
     createdAt: Date;
     updatedAt: Date;
 }

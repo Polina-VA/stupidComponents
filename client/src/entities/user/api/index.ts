@@ -1,10 +1,6 @@
 import { axiosInstance, setAccessToken } from '@/shared/lib/axiosInstance';
 import { AuthResponse } from '../model';
 
-interface ApiResponse<T> {
-  data: T;
-  message: string;
-}
 
 export class UserService {
   static async refreshAccessToken(): Promise<AuthResponse> {
