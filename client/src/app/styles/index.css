@@ -1,12 +1,65 @@
 @font-face {
-    font-family: 'Play';
-    src: url('fonts/Play-Regular.ttf') format('truetype');
-  }
+  font-family: "Play";
+  src: url("fonts/Play-Regular.ttf") format("truetype");
+}
 
 body {
-    font-family: 'Play' !important;
+  font-family: "Play" !important;
 }
- 
-span, p, button, div{
-    font-family: 'Play' !important;
+
+span,
+p,
+button,
+div {
+  font-family: "Play" !important;
+}
+
+.game-themes {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.theme-row {
+  display: flex; 
+  margin-bottom: 20px; 
+  max-width: 1350px;
+}
+
+.theme-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 100px;
+  background-color: grey;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.theme-questions {
+  display: flex; 
+}
+
+.question-item {
+  margin-right: 10px; 
+}
+
+.theme-row {
+  display: flex; 
+  margin-bottom: 20px; 
+}
+
+.questions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 1180px;
+  background-color: grey;
+  margin-right: 20px;
+  border-radius: 5px;
 }
