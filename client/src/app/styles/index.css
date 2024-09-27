@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Play';
+    src: url('fonts/Play-Regular.ttf') format('truetype');
+  }
+
+body {
+    font-family: 'Play' !important;
+}
+ 
+span, p, button, div{
+    font-family: 'Play' !important;
+}
