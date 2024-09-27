@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/hooks/reduxHooks';
 import { refreshAccessToken } from '@/entities/user';
+import NavBar from '@/widgets/NavBar/NavBar';
 
 const Layout: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,8 +17,8 @@ const Layout: React.FC = () => {
   return (
     <>
 
-      {/* <Navbar />
-      <Sidebar /> */}
+      <NavBar />
+      {/* <Sidebar /> */}
       <main>
         <Outlet />
       </main>
