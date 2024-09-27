@@ -5,6 +5,7 @@ import { getAllThemesandQuestions } from "@/entities/theme";
 import QuestionItem from "@/entities/question/ui/QuestionItem/QuestionItem";
 import ModalWindow from "@/shared/ui/ModalWindow/ModalWindow";
 import { Question } from "@/entities/question";
+import { OneQuestion } from "../OneQuestion";
 
 export const GameThemes: React.FC = () => {
   const { themeList } = useAppSelector((state) => state.theme);
@@ -45,14 +46,7 @@ export const GameThemes: React.FC = () => {
                   setIsModalOpen={setIsModalOpen}
                   isModalOpen={isModalOpen}
                 >
-                  <p>{currQuestion?.question}</p>
-                  <img
-                    src={currQuestion?.image}
-                    alt="картинка вопросика"
-                    width={"80%"}
-                    height={"80%"}
-                  />
-                  <input type="text" />
+                  <OneQuestion currQuestion={currQuestion} />
                 </ModalWindow>
               )}
             </>
