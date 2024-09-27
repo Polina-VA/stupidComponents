@@ -62,7 +62,7 @@ export const GameThemes: React.FC = () => {
                   setIsModalOpen={setIsModalOpen}
                   isModalOpen={isModalOpen}
                 >
-                  <OneQuestion currQuestion={currQuestion} />
+                  <OneQuestion key={question.id} currQuestion={currQuestion} />
                 </ModalWindow>
               )}
             </>
@@ -70,7 +70,7 @@ export const GameThemes: React.FC = () => {
 
         </div>
       ))}
-     
+
     </div>
   );
 };

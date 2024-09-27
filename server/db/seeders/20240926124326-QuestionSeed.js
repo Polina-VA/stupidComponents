@@ -127,7 +127,7 @@ module.exports = {
           question: "Кто с третьей фазы включил бы трек Doja Cat – Juicy?",
           answer: "Амантур",
           image:
-            "https://static.wikia.nocookie.net/dojacat/images/3/30/Amala_%28Deluxe_%28cover_art%29.png/revision/latest?cb=20200816143857",
+            "https://i.scdn.co/image/ab67616d0000b273e0c9d69f356c8b8a378a4d3c",
           point: 400,
         },
         {
