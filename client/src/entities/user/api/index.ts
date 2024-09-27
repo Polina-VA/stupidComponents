@@ -24,7 +24,7 @@ export class UserService {
     password: string
   ): Promise<AuthResponse> {
     const response = await axiosInstance.post<AuthResponse>(
-      "/auth/registration",
+      "/auth/signup",
       {
         name,
         email,
@@ -43,7 +43,7 @@ export class UserService {
   //* Метод для входа пользователя
   static async signIn(email: string, password: string): Promise<AuthResponse> {
     const response = await axiosInstance.post<AuthResponse>(
-      "/auth/authorization",
+      "/auth/signin",
       {
         email,
         password,
