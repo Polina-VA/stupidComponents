@@ -1,21 +1,31 @@
-import React from 'react'
-import { Question } from '../../model'
-import { Modal } from 'antd'
-// import { Modal } from '@/'
+import React, { useState } from "react";
+import { Question } from "../../model";
+import { Button } from "antd";
+import ModalWindow from "@/shared/ui/ModalWindow/ModalWindow";
 
 type QuestionItemProps = {
-  question: Question
-}
+  question: Question;
+};
 
-export const QuestionItem: React.FC<QuestionItemProps> = ({question}) => {
+export const QuestionItem: React.FC<QuestionItemProps> = ({ question }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <>
-      {/* <Modal> */}
-          <h1>{question.question}</h1>
+      <Button type="primary" onClick={showModal}>{question.point}</Button>
+      {isModalOpen && (
+        <ModalWindow setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}>
+          <p>{question.question}</p>
+          <img src={question.image} alt="картинка вопросика" width={"80%"} height={'80%'}/>
           <input type="text" />
-      {/* </Modal> */}
+        </ModalWindow>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default QuestionItem
+export default QuestionItem;

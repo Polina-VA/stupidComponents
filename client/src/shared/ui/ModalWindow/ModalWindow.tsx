@@ -1,16 +1,15 @@
-import { Modal, Button } from "antd";
-import React, { useState } from "react";
+import { Modal } from "antd";
+import React, { Dispatch, SetStateAction } from "react";
 
 type ModalWindowProps = {
     children: React.ReactNode;
+    setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+    isModalOpen: boolean
 };
 
-export const ModalWindow: React.FC<ModalWindowProps> = ({children}) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const ModalWindow: React.FC<ModalWindowProps> = ({children, isModalOpen, setIsModalOpen}) => {
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -21,11 +20,8 @@ export const ModalWindow: React.FC<ModalWindowProps> = ({children}) => {
   };
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        {children}
-      </Button>
       <Modal
-        title="Basic Modal"
+        title='Вопрос'
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
