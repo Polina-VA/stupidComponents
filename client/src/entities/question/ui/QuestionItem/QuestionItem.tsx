@@ -2,8 +2,9 @@ import React, { SetStateAction, useState } from "react";
 import { Question } from "../../model";
 
 import { Button, Flex, Input, Space } from "antd";
-import ModalWindow from "@/shared/ui/ModalWindow/ModalWindow";
-import Column from "antd/es/table/Column";
+
+import "./QuestionItem.module.css";
+
 
 type QuestionItemProps = {
   question: Question;
@@ -16,7 +17,7 @@ export const QuestionItem: React.FC<QuestionItemProps> = ({
 }) => {
   return (
     <>
-      <Button type="primary" onClick={onClick}>
+      <Button className="question-item" type="primary" onClick={onClick} style={{ width: "200px", height: "100px" }}>
         {question.point}
       </Button>
 
