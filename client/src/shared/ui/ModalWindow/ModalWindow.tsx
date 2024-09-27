@@ -10,21 +10,17 @@ type ModalWindowProps = {
 export const ModalWindow: React.FC<ModalWindowProps> = ({children, isModalOpen, setIsModalOpen}) => {
 
 
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  
   return (
     <>
       <Modal
         title='Вопрос'
         open={isModalOpen}
         footer={null}
-        // onOk={handleOk}
         onCancel={handleCancel}
       >
         {children}

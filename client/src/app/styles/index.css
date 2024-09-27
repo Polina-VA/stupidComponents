@@ -5,8 +5,10 @@
 
 body {
   font-family: "Play" !important;
+
   background: url("Pigeons.webp") no-repeat center center fixed;
   background-size: cover;
+
 }
 
 span,
@@ -15,6 +17,7 @@ button,
 div {
   font-family: "Play" !important;
 }
+
 
 .card {
   background-color: #e6f7ff; /* Уберите кавычки */
@@ -52,4 +55,54 @@ div {
   position: relative;
   overflow: hidden;
   animation: glow 5s infinite alternate;
+}
+
+.game-themes {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.theme-row {
+  display: flex; 
+  margin-bottom: 20px; 
+  max-width: 1350px;
+}
+
+.theme-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 100px;
+  background-color: grey;
+  margin-right: 20px;
+  border-radius: 5px;
+}
+
+.theme-questions {
+  display: flex; 
+}
+
+.question-item {
+  margin-right: 10px; 
+}
+
+.theme-row {
+  display: flex; 
+  margin-bottom: 20px; 
+}
+
+.questions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 1180px;
+  background-color: grey;
+  margin-right: 20px;
+  border-radius: 5px;
 }
