@@ -1,4 +1,4 @@
-import { GameThemes } from '@/shared/ui/GameThemes'
+import { GameThemes } from '@/widgets/GameThemes'
 import React from 'react'
 
 type GamePageProps = {
