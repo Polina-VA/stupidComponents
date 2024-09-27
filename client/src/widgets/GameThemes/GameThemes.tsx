@@ -70,18 +70,7 @@ export const GameThemes: React.FC = () => {
 
         </div>
       ))}
-      {isModalOpen && (
-        <ModalWindow setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen}>
-          <p>{currQuestion?.question}</p>
-          <img
-            src={currQuestion?.image}
-            alt="картинка вопросика"
-            width={"80%"}
-            height={"80%"}
-          />
-          <input type="text" />
-        </ModalWindow>
-      )}
+     
     </div>
   );
 };
