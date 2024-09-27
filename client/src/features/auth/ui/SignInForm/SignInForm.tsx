@@ -1,6 +1,6 @@
 import React from "react";
 import type { FormProps } from "antd";
-import { Button, Form, Input } from "antd";
+import { Button, Card, Flex, Form, Input } from "antd";
 import {
   selectUserLoading,
   useAppDispatch,
@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { signIn } from "@/entities/user";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { ROUTES } from "@/app/router/routes";
+import "./SignInForm.module.css";
 
 type SignInFormData = {
   email: string;
@@ -34,42 +35,52 @@ export const SignInForm: React.FC = () => {
   };
 
   return (
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
-      onFinish={onFinish}
-      autoComplete="off"
+    <Flex
+      style={{ width: "100%", marginTop: "100px" }}
+      gap={"middle"}
+      justify="center"
+      align="center"
     >
-      <Form.Item<SignInFormData>
-        label="Email"
-        name="email"
-        hasFeedback
-        rules={[
-          { required: true, message: "Please input your email!" },
-          { type: "email", message: "The input is not a valid email!!!" },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+      <Card style={{ width: 500 }}>
+        <h1>Авторизация</h1>
+        <Form
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          style={{ maxWidth: 500 }}
+          onFinish={onFinish}
+          autoComplete="off"
+        >
+          <Form.Item<SignInFormData>
+            label="Email"
+            name="email"
+            hasFeedback
+            validateDebounce={500}
+            rules={[
+              { required: true, message: "Необходимо ввести email!" },
+              { type: "email", message: "Введен некорректный email!" },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-      <Form.Item<SignInFormData>
-        label="Password"
-        name="password"
-        hasFeedback
-        validateDebounce={1000}
-        validateStatus={"validating"}
-        rules={[{ required: true, message: "Please input your password!" }]}
-      >
-        <Input.Password />
-      </Form.Item>
+          <Form.Item<SignInFormData>
+            label="Пароль"
+            name="password"
+            hasFeedback
+            validateDebounce={500}
+            rules={[{ required: true, message: "Необходимо ввести пароль!" }]}
+          >
+            <Input.Password />
+          </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }} style={{ }}>
+            <Button type="primary" htmlType="submit">
+              Войти
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
+    </Flex>
   );
 };

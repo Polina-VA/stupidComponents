@@ -1,0 +1,14 @@
+.theme-row {
+  display: flex; /* Расположение тем в строку */
+  /* flex-direction: row; */
+  margin-bottom: 20px; /* Отступ между темами */
+}
+
+.theme-questions {
+  display: flex; /* Расположение вопросов в строку */
+  /* flex-direction: row; */
+}
+
+.question-item {
+  margin-right: 10px; /* Отступ между вопросами */
+}

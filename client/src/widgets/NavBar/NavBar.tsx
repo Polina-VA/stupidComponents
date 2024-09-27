@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Flex, Layout, Menu } from "antd";
 import {
   LaptopOutlined,
   NotificationOutlined,
@@ -20,7 +20,12 @@ export const NavBar: React.FC = () => {
   };
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>
-      <div className="demo-logo" />
+      <Flex justify="center" align="center">
+        <div className="demo-logo">
+          <img src="logo.jpg" style={{ height: "60px", marginTop: "30px", marginRight: "30px" }} alt="" />
+        </div>
+      </Flex>
+
       <Menu
         theme="dark"
         mode="horizontal"
