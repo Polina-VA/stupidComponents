@@ -1,13 +1,9 @@
 import { Flex, Layout, Menu } from "antd";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/shared/hooks/reduxHooks";
 import { logout } from "@/entities/user";
+import { getPointsThunk } from "@/entities/points";
 
 const { Header } = Layout;
 
@@ -22,8 +18,12 @@ export const NavBar: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(getPoints())
-  }, [dispatch])
+    if (user) {
+      dispatch(getPointsThunk())
+    }
+  }, [dispatch, user])
+
+  
 
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>
@@ -47,7 +47,7 @@ export const NavBar: React.FC = () => {
             <Menu.Item key="/game">
               <Link to="/game">Игра</Link>
             </Menu.Item>
-            <div>Привет, {user.name}, у тебя {points} голубей</div>
+            <div>Привет, {user.name}, у тебя {points?.points} голубей</div>
             <Menu.Item key="/logout" onClick={handleLogout}>
               Выйти
             </Menu.Item>

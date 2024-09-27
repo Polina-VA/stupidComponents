@@ -3,7 +3,7 @@ const PointService = require("../services/Points.services");
 async function createPoints (req, res) {
     try {
         const {id : userId} = res.locals.user
-        const userPoints = await PointService.crateUserPoints(userId)
+        const userPoints = await PointService.createUserPoints(userId)
         res.status(200).json(userPoints)
     } catch ({message}) {
         res.status(500).json({ error: message });

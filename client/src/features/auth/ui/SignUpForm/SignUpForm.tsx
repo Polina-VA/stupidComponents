@@ -11,6 +11,7 @@ import {
 import { signUp } from "@/entities/user";
 import { unwrapResult } from "@reduxjs/toolkit";
 import './SignUpForm.module.css'
+import { createPointsThunk } from "@/entities/points";
 
 type SignUpFormData = {
   name: string;
@@ -24,6 +25,7 @@ export const SignUpForm: React.FC = () => {
   const loading = useAppSelector(selectUserLoading);
   const navigate = useNavigate();
 
+
   const onFinish: FormProps<SignUpFormData>["onFinish"] = async (
     values: SignUpFormData
   ) => {
@@ -31,6 +33,7 @@ export const SignUpForm: React.FC = () => {
       const resultAction = await dispatch(signUp(values));
       console.log(resultAction);
       unwrapResult(resultAction);
+      dispatch(createPointsThunk())
       navigate(ROUTES.HOME);
     } catch (error) {
       console.error("Sign up failed:", error);

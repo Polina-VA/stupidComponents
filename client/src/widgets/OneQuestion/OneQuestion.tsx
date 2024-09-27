@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { Question } from '@/entities/question';
 import { Button, Flex, Image, Input, Space } from 'antd';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/reduxHooks';
+import { updatePointsThunk } from '@/entities/points';
 
 
 type OneQuestionProps = {
-    currQuestion: Question;
+    currQuestion: Question | undefined;
 }
 
 export const OneQuestion: React.FC<OneQuestionProps> = ({currQuestion}) => {
@@ -19,12 +20,12 @@ export const OneQuestion: React.FC<OneQuestionProps> = ({currQuestion}) => {
 
     const onHandleCheck = (event: React.FormEvent) => {
         event.preventDefault();
-        if (answer.trim().toLowerCase() === currQuestion.answer.trim().toLowerCase()) {
+        if (answer.trim().toLowerCase() === currQuestion?.answer.trim().toLowerCase()) {
             setFeedBack("Молодееец!! Ну ты гений")
-            dispatch(updatePoints({points: points + currQuestion.point}))
+            dispatch(updatePointsThunk({points: points?.points + currQuestion?.point}))
         } else {
-            setFeedBack(`Ну вооот! Я переживаю за твои знания. Правильный ответ: ${currQuestion.answer}`)
-            dispatch(updatePoints({points: points - currQuestion.point}))
+            setFeedBack(`Ну вооот! Я переживаю за твои знания. Правильный ответ: ${currQuestion?.answer}`)
+            dispatch(updatePointsThunk({points: points?.points - currQuestion?.point}))
         }
         setDisableState(true)
     }

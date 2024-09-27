@@ -5,7 +5,10 @@ import { AuthResponse } from '../model';
 export class UserService {
   static async refreshAccessToken(): Promise<AuthResponse> {
     const response = await axiosInstance.get<AuthResponse>("/tokens/refresh");
+    
     if (response.status === 200) {
+    console.log(response, 111111111111111111);
+      
       setAccessToken(response.data.accessToken);
       return response.data;
     } else {

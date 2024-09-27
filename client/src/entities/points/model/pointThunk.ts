@@ -25,7 +25,7 @@ type RejectValue = {
     Point,
     void,
     { rejectValue: RejectValue }
-  >("points/getPoints", async (_, { rejectWithValue }) => {
+  >("points/createPoints", async (_, { rejectWithValue }) => {
     try {
       return await PointService.createPoint();
     } catch (error) {
@@ -39,7 +39,7 @@ type RejectValue = {
     Point,
     {points: number},
     { rejectValue: RejectValue }
-  >("points/getPoints", async ({points}, { rejectWithValue }) => {
+  >("points/updatePoints", async ({points}, { rejectWithValue }) => {
     try {
       return await PointService.updatePoint(points);
     } catch (error) {

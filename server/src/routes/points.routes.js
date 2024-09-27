@@ -4,11 +4,11 @@ const verifyAccessToken = require('../middleware/verifyAccessToken')
 const pointsRouter = require('express').Router()
 
 
-pointsRouter.get('/', verifyAccessToken, getPoints())
+pointsRouter.get('/', verifyAccessToken, getPoints)
 
-pointsRouter.post('/', verifyAccessToken, createPoints())
+pointsRouter.post('/', verifyAccessToken, createPoints)
  
-pointsRouter.put('/', verifyAccessToken, updatePoints())
+pointsRouter.put('/', verifyAccessToken, updatePoints)
 
 
 module.exports = pointsRouter

@@ -6,7 +6,7 @@ class PointService {
         return userPoints? userPoints : null
     }
 
-    static crateUserPoints = async (userId) => {
+    static createUserPoints = async (userId) => {
         const userPoints = await Points.create({userId, points: 0})
         return userPoints? userPoints: null
     }

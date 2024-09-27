@@ -51,9 +51,9 @@ export const GameThemes: React.FC = () => {
         <div className="theme-row" key={theme.id}>
           <div className="theme-title">{theme.title}</div>
           {theme.Questions?.map((question) => (
-            <>
+            <div key={question.id}>
               <QuestionItem
-                key={question.id}
+                // key={question.id}
                 question={question}
                 onClick={() => showModal({themeId: theme.id, questId: question.id})}
               />
@@ -62,10 +62,10 @@ export const GameThemes: React.FC = () => {
                   setIsModalOpen={setIsModalOpen}
                   isModalOpen={isModalOpen}
                 >
-                  <OneQuestion key={question.id} currQuestion={currQuestion} />
+                  <OneQuestion  currQuestion={currQuestion} />
                 </ModalWindow>
               )}
-            </>
+            </div>
           ))}
 
         </div>

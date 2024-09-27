@@ -1,5 +1,6 @@
 //? способ создания хранилища в Redux, который автоматически включает ряд полезных настроек
- import { themeReducer } from '@/entities/theme';
+ import { pointReducer } from '@/entities/points';
+import { themeReducer } from '@/entities/theme';
 import { userReducer } from '@/entities/user';
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -10,6 +11,7 @@ const store = configureStore({
     reducer: {
       user: userReducer, //? В этом объекте ключ reducer используется для определения всех редукторов, которые будут работать с хранилищем.
       theme: themeReducer,
+      points: pointReducer,
     },
   });
 
