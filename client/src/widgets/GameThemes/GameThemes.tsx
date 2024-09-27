@@ -45,10 +45,11 @@ export const GameThemes: React.FC = () => {
         <div className="theme-title">Темы</div>
         <div className="questions">Вопросы</div>
       </div>
+
       {themeList?.map((theme) => (
 
-        <div key={theme.id}>
-          <div>{theme.title}</div>
+        <div className="theme-row" key={theme.id}>
+          <div className="theme-title">{theme.title}</div>
           {theme.Questions?.map((question) => (
             <>
               <QuestionItem

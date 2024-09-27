@@ -8,7 +8,6 @@ body {
 
   background: url("Pigeons.webp") no-repeat center center fixed;
   background-size: cover;
-
 }
 
 span,
@@ -17,7 +16,6 @@ button,
 div {
   font-family: "Play" !important;
 }
-
 
 .card {
   background-color: #e6f7ff; /* Уберите кавычки */
@@ -31,23 +29,23 @@ div {
 @keyframes glow {
   0% {
     box-shadow: 0 0 200px rgba(128, 0, 128, 0.5),
-                0 0 300px rgba(0, 100, 100, 0.5); /* Фиолетовый к темно-зеленосинему */
+      0 0 300px rgba(0, 100, 100, 0.5); /* Фиолетовый к темно-зеленосинему */
   }
   25% {
     box-shadow: 0 0 400px rgba(0, 100, 100, 0.5),
-                0 0 200px rgba(0, 150, 150, 0.5); /* Темно-зеленосиний */
+      0 0 200px rgba(0, 150, 150, 0.5); /* Темно-зеленосиний */
   }
   50% {
     box-shadow: 0 0 300px rgba(0, 150, 150, 0.5),
-                0 0 400px rgba(0, 200, 200, 0.5); /* Плавный переход к более светлому */
+      0 0 400px rgba(0, 200, 200, 0.5); /* Плавный переход к более светлому */
   }
   75% {
     box-shadow: 0 0 200px rgba(128, 0, 128, 0.5),
-                0 0 300px rgba(0, 150, 150, 0.5); /* Фиолетовый к темно-зеленосинему */
+      0 0 300px rgba(0, 150, 150, 0.5); /* Фиолетовый к темно-зеленосинему */
   }
   100% {
     box-shadow: 0 0 200px rgba(0, 150, 150, 0.5),
-                0 0 300px rgba(0, 100, 100, 0.5); /* Темно-зеленосиний */
+      0 0 300px rgba(0, 100, 100, 0.5); /* Темно-зеленосиний */
   }
 }
 
@@ -67,12 +65,12 @@ div {
 }
 
 .theme-row {
-  display: flex; 
-  margin-bottom: 20px; 
+  display: flex;
+  margin-bottom: 20px;
   max-width: 1350px;
 }
 
-.theme-title{
+.theme-title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,25 +82,25 @@ div {
 }
 
 .theme-questions {
-  display: flex; 
+  display: flex;
 }
 
 .question-item {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .theme-row {
-  display: flex; 
-  margin-bottom: 20px; 
+  display: flex;
+  margin-bottom: 20px;
 }
 
-.questions{
+.questions {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
-  width: 1180px;
+  width: 1050px;
   background-color: grey;
-  margin-right: 20px;
+
   border-radius: 5px;
 }
