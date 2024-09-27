@@ -47,7 +47,7 @@ export const NavBar: React.FC = () => {
             <Menu.Item key="/game">
               <Link to="/game">Игра</Link>
             </Menu.Item>
-            <div>Привет, {user.name}, у тебя {points?.points} голубей</div>
+            <div style={{marginLeft: "10px"}}>Привет, {user.name}, у тебя {points?.points} голубей</div>
             <Menu.Item key="/logout" onClick={handleLogout}>
               Выйти
             </Menu.Item>
