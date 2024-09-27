@@ -18,7 +18,7 @@ export const FooterComponent: React.FC = () => {
     >
       <p>
         {" "}
-        © {new Date().getFullYear()} Ваше название компании. Все права защищены.
+        © {new Date().getFullYear()} Джусси Пусси . Все права защищены.
       </p>
     </Footer>
   );
