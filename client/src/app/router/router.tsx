@@ -4,6 +4,7 @@ import Layout from "./Layout/Layout";
 import { ProtectedRoute } from "@/shared/ui/ProtectedRoute";
 import { PublicRoute } from "@/shared/ui/PublicRoute";
 import { GamePage, MainPage, SignInPage, SignUpPage } from "@/pages";
+import { ErrorPage } from "@/pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             <GamePage />
           </ProtectedRoute>
         ),
+      },
+      {
+        path: ROUTES.ERROR,
+        element: <ErrorPage />,
       },
       {
         path: "test",
